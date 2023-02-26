@@ -1,6 +1,6 @@
 # chatgpt_project
 
-A new Flutter project.
+Criação de um app integrado a AI ChatGPT
 
 ## Getting Started
 
