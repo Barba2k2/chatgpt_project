@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'src/constants/constants.dart';
-import 'src/pages/Home_Page/chat_page.dart';
-import 'src/pages/Initial_Page/initial_page.dart';
+import 'src/Constants/constants.dart';
+import 'src/Screens/Home_Page/chat_page.dart';
+import 'src/Screens/Initial_Page/initial_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
