@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'src/constants/constants.dart';
 import 'src/pages/Home_Page/chat_page.dart';
 import 'src/pages/Initial_Page/initial_page.dart';
 
@@ -15,6 +16,8 @@ class MyApp extends StatelessWidget {
       title: 'ChatGPT App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        scaffoldBackgroundColor: scaffoldBackgroundColor,
+        appBarTheme: AppBarTheme(color: cardColor),
         primaryColorLight: Colors.black,
         primaryColorDark: Colors.white,
         brightness: Brightness.dark,
