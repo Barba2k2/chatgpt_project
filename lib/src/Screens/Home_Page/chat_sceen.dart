@@ -1,5 +1,6 @@
 import 'package:chatgpt_project/src/Constants/constants.dart';
 import 'package:chatgpt_project/src/Services/assets_manager.dart';
+import 'package:chatgpt_project/src/Services/services.dart';
 import 'package:chatgpt_project/src/Widgets/chat_widget.dart';
 import 'package:chatgpt_project/src/Widgets/text_widget.dart';
 import 'package:flutter/material.dart';
@@ -38,34 +39,11 @@ class _ChatScreenState extends State<ChatScreen> {
           padding: const EdgeInsets.all(8),
           child: Image.asset(AssetManager.openAiLogo),
         ),
-        title: Text('Chat GPT', style: Theme.of(context).textTheme.headline4),
+        title: Text('Chat GPT', style: Theme.of(context).textTheme.headlineMedium),
         actions: [
           IconButton(
             onPressed: () async {
-              await showModalBottomSheet(
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.vertical(
-                    top: Radius.circular(20),
-                  ),
-                ),
-                backgroundColor: scaffoldBackgroundColor,
-                context: context,
-                builder: (context) {
-                  return Padding(
-                    padding: const EdgeInsets.all(18.0),
-                    child: Row(
-                      children: const [
-                        Flexible(
-                          child: TextWidget(
-                            label: 'Chosen Model:',
-                            fontSize: 16,
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              );
+              await Services.showModalSheet(context: context);
             },
             icon: const Icon(
               Icons.more_vert_rounded,
