@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'src/Constants/constants.dart';
-import 'src/Screens/Home_Page/chat_page.dart';
+import 'src/Screens/Home_Page/chat_sceen.dart';
 import 'src/Screens/Initial_Page/initial_page.dart';
 
 Future<void> main() async {
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: ChatPage(),
+      home: const ChatScreen(),
     );
   }
 }
