@@ -3,11 +3,10 @@ import 'dart:io';
 import 'dart:math';
 import 'package:chatgpt_project/src/Constants/api_constants.dart';
 import 'package:chatgpt_project/src/Models/models_model.dart';
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class ApiService {
-  static Future<List<ModelsModel> getModels() async {
+  static Future<List<ModelsModel>> getModels() async {
     try {
       var response = await http.get(
         Uri.parse('$BASE_URL/models'),
@@ -22,9 +21,9 @@ class ApiService {
       }
       //debugPrint('jsonResponse $jsonResponse');
       List temp = [];
-      for(var value in jsonResponse['data']){
+      for (var value in jsonResponse['data']) {
         temp.add(value);
-        log('temp $value' as num);
+        // log('temp ${value['id']}' as num);
       }
       return ModelsModel.modelsFromSnapshot(temp);
     } catch (error) {
