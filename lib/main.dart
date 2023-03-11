@@ -1,9 +1,10 @@
+import 'package:chatgpt_project/src/Providers/chat_provider.dart';
 import 'package:chatgpt_project/src/Providers/models_provider.dart';
+import 'package:chatgpt_project/src/Screens/Chat_Screen/chat_sceen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'src/Constants/constants.dart';
-import 'src/Screens/Home_Page/chat_sceen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,6 +20,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (_) => ModelsProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => ChatProvider(),
         ),
       ],
       child: GetMaterialApp(
