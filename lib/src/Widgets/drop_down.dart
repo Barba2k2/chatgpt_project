@@ -1,8 +1,10 @@
 import 'package:chatgpt_project/src/Constants/constants.dart';
 import 'package:chatgpt_project/src/Models/models_model.dart';
+import 'package:chatgpt_project/src/Providers/models_provider.dart';
 import 'package:chatgpt_project/src/Services/api_service.dart';
 import 'package:chatgpt_project/src/Widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ModelsDrownDownWidget extends StatefulWidget {
   const ModelsDrownDownWidget({super.key});
@@ -16,6 +18,8 @@ class _ModelsDrownDownWidgetState extends State<ModelsDrownDownWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final modelsProvider = Provider.of<ModelsProvider>(context, listen: false);
+    currentModel = modelsProvider.getCurrentModel;
     return FutureBuilder<List<ModelsModel>>(
       future: ApiService.getModels(),
       builder: (context, snapshot) {
@@ -29,7 +33,7 @@ class _ModelsDrownDownWidgetState extends State<ModelsDrownDownWidget> {
         return snapshot.data == null || snapshot.data!.isEmpty
             ? const SizedBox.shrink()
             : FittedBox(
-              child: DropdownButton(
+                child: DropdownButton(
                   dropdownColor: scaffoldBackgroundColor,
                   iconEnabledColor: Colors.white,
                   items: List<DropdownMenuItem<String>>.generate(
@@ -47,7 +51,7 @@ class _ModelsDrownDownWidgetState extends State<ModelsDrownDownWidget> {
                     currentModel = value.toString();
                   },
                 ),
-            );
+              );
       },
     );
   }
